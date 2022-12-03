@@ -24,8 +24,7 @@ public class ClienteService implements IClienteService {
 
 	@Override
 	public void saveAdmin() {
-		Cliente admin = new Cliente(1L, "admin", "admin", "admin", Role.ADMIN, "administrador", "admin",
-				"1154778287747");
+		Cliente admin = new Cliente(1L, "admin", "admin", "admin", Role.ADMIN, "administrador", "sin apellido", "sin celular", "false");
 		admin.setPassword(passwordEncoder.encode("admin"));
 		clienteRepository.save(admin);
 	}

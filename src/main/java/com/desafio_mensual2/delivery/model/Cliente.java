@@ -16,11 +16,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.desafio_mensual2.delivery.enums.Role;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "clientes")
 public class Cliente implements UserDetails {
 
@@ -49,22 +52,6 @@ public class Cliente implements UserDetails {
 	@Size(min = 10, message = "debe contener un minimo de 10 caracteres")
 	private String celular;
 	private String eliminado;
-
-	public Cliente() {
-	}
-
-	public Cliente(Long idCliente, String username, String password, String repeatPassword, Role role, String nombre,
-			String apellido, String celular) {
-		this.idCliente = idCliente;
-		this.username = username;
-		this.password = password;
-		this.repeatPassword = repeatPassword;
-		this.role = role;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.celular = celular;
-		this.eliminado = "false";
-	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

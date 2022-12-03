@@ -2,6 +2,7 @@ package com.desafio_mensual2.delivery.model;
 
 import java.util.List;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,11 +14,13 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "pedidos")
 public class Pedido {
 
@@ -35,15 +38,6 @@ public class Pedido {
 	inverseJoinColumns = @JoinColumn(name = "idComida"))
 	@NotEmpty(message = "No puede estar vacia")
 	@NotNull(message = "No puede estar vacia")
-	private List<Comida> listaComidas;
-
-	public Pedido() {
-	}
-
-	public Pedido(Long idPedido, Cliente unCliente, List<Comida> listaComidas) {
-		this.idPedido = idPedido;
-		this.unCliente = unCliente;
-		this.listaComidas = listaComidas;
-	}
+	private List<Comida> listaComidas;	
 
 }

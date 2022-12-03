@@ -7,11 +7,14 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity (name = "comidas")
 public class Comida {
 
@@ -23,14 +26,5 @@ public class Comida {
 	private String nombreComida;
 	@NotNull(message = "El campo precio no puede estar vácio")
 	private double precio;
-
-	public Comida() {
-	}
-
-	public Comida(Long idComida, String nombreComida, double precio) {
-		this.idComida = idComida;
-		this.nombreComida = nombreComida;
-		this.precio = precio;
-	}
 
 }
